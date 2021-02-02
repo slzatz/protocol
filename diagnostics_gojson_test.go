@@ -2,15 +2,16 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !gojay,!gojson
+// +build gojson
 
 package protocol
 
 import (
-	"encoding/json"
 	"testing"
+
+	json "github.com/goccy/go-json"
 )
 
 func TestPublishDiagnosticsParams(t *testing.T) {
-	testPublishDiagnosticsParams(t, json.Marshal, json.Unmarshal)
+	testPublishDiagnosticsParams(t, json.MarshalNoEscape, json.UnmarshalNoEscape)
 }

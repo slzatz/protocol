@@ -14,7 +14,7 @@ jobs:
       version: "<< parameters.go-version >>"
     working_directory: /go/src/go.lsp.dev/protocol
     resource_class: large
-    parallelism: 2
+    parallelism: 3
     steps:
       - checkout
       - golang/gomod
@@ -32,7 +32,7 @@ jobs:
             make $(circleci tests split .circleci/coverage-targets)
       - codecov/upload:
           file: "coverage.out"
-          flags: $(if [ $CIRCLE_NODE_INDEX == 0 ]; then echo "json"; else echo "gojay"; fi)
+          flags: $(if [ $CIRCLE_NODE_INDEX == 0 ]; then echo "json"; elif [ $CIRCLE_NODE_INDEX == 1 ]; then echo "gojay"; else echo "gojson"; fi)
       - store_artifacts:
           path: /tmp/artifacts
       - store_test_results:
@@ -49,7 +49,7 @@ jobs:
       version: "<< parameters.go-version >>"
     working_directory: /go/src/go.lsp.dev/protocol
     resource_class: large
-    parallelism: 2
+    parallelism: 3
     steps:
       - checkout
       - golang/gomod

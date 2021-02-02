@@ -62,6 +62,11 @@ test/gojay: GO_BUILDTAGS+=gojay
 test/gojay: TARGET=test/gojay
 test/gojay: test
 
+.PHONY: test/gojson
+test/gojson: GO_BUILDTAGS+=gojson
+test/gojson: TARGET=test/gojson
+test/gojson: test
+
 .PHONY: bench
 bench: GO_TEST=go test
 bench:  ## Take a package benchmark.
@@ -78,6 +83,10 @@ coverage: tools/bin/gotestsum  ## Takes packages test coverage.
 .PHONY: coverage/gojay
 coverage/gojay: GO_BUILDTAGS+=gojay
 coverage/gojay: coverage
+
+.PHONY: coverage/gojson
+coverage/gojson: GO_BUILDTAGS+=gojson
+coverage/gojson: coverage
 
 
 ##@ fmt, lint

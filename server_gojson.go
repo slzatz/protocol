@@ -2,15 +2,15 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !gojay,!gojson
+// +build gojson
 
 package protocol
 
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 
+	json "github.com/goccy/go-json"
 	"go.lsp.dev/jsonrpc2"
 	"go.uber.org/zap"
 )
