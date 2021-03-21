@@ -21,4 +21,4 @@
 // - Fields that are string or number are left as string.
 //
 // - Fields that are type "number" are made float64.
-package protocol // import "go.lsp.dev/protocol"
+package protocol // import "github.com/slzatz/protocol"
