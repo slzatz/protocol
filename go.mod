@@ -1,4 +1,4 @@
-module go.lsp.dev/protocol
+module github.com/slzatz/protocol
 
 go 1.15
 
